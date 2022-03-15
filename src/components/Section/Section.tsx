@@ -8,7 +8,7 @@ import { SxProps } from "@mui/system";
 import Text from "@components/Text";
 import Media, { MediaProps } from "@components/Media";
 
-export interface CollectionProps {
+export interface SectionProps {
   title?: string;
   body?: string;
   backgroundColor?: string;
@@ -26,7 +26,7 @@ const Root = styled(Box)<
   }),
 }));
 
-export default function Collection({
+export default function Section({
   title,
   body,
   backgroundColor,
@@ -34,7 +34,7 @@ export default function Collection({
   color,
   children,
   sx,
-}: CollectionProps) {
+}: SectionProps) {
   return (
     <Root
       width={1}

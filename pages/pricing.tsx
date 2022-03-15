@@ -10,42 +10,15 @@ import Flight from "@mui/icons-material/Flight";
 import Marquee from "react-fast-marquee";
 
 import Layout from "@components/Layout";
-import Hero, { HeroProps } from "@components/Hero";
 import PricingTable from "@components/PricingTable";
-import Collection from "@components/Collection";
+import Section from "@components/Section";
 import Form from "@components/Form";
-
-const hero: HeroProps = {
-  overline: "start",
-  title: "Building the",
-  subtitle: "Modern Web",
-  image: {
-    title: "Hero Illustration",
-    src: "/images/illustration-1.svg",
-  },
-  actions: [
-    {
-      id: "contact-us-cta",
-      text: "Contact Us",
-      href: "/contact-us",
-      variant: "button-contained",
-      color: "primary",
-    },
-  ],
-};
 
 export default function ContactUsPage() {
   return (
     <Layout title="Pricing - Starter">
-      <Hero {...hero} />
-      <Container maxWidth="xl" sx={{ my: 8 }}>
-        <Typography variant="h1" textAlign="center" gutterBottom>
-          Pricing
-        </Typography>
-        <PricingTable />
-      </Container>
       <Box bgcolor="#f7f9fc">
-        <Collection
+        <Section
           sx={{ mb: 0, mt: 12 }}
           backgroundColor="#f7f9fc"
           title="Trusted by the most innovative icons"
@@ -63,7 +36,7 @@ export default function ContactUsPage() {
             <DownhillSkiing color="primary" sx={{ fontSize: 64, mx: 4 }} />
             <Flight color="primary" sx={{ fontSize: 64, mx: 4 }} />
           </Box>
-        </Collection>
+        </Section>
         <Box
           component="svg"
           preserveAspectRatio="none"
@@ -82,6 +55,12 @@ export default function ContactUsPage() {
           <path d="M0,0c0,0,934.4,93.4,1920,0v100.1H0L0,0z"></path>
         </Box>
       </Box>
+      <Container maxWidth="xl" sx={{ my: 8 }}>
+        <Typography variant="h1" textAlign="center" gutterBottom>
+          Pricing
+        </Typography>
+        <PricingTable />
+      </Container>
       <Container maxWidth="xl">
         <Form
           name="contact-form"

@@ -5,17 +5,14 @@ import matter from "gray-matter";
 
 import Layout from "@components/Layout";
 import Hero, { HeroProps } from "@components/Hero";
-import Collection from "@components/Collection";
+import Section from "@components/Section";
 import Card from "@components/Card";
 
 const hero: HeroProps = {
-  overline: "start",
-  title: "Building the",
-  subtitle: "Modern Web",
-  image: {
-    title: "Hero Illustration",
-    src: "/images/illustration-1.svg",
-  },
+  overline: "dynamic landing page",
+  title: "Blog Posts",
+  subtitle: "New blogs get posted here",
+  backgroundColor: "#556cd6",
   actions: [
     {
       id: "contact-us-cta",
@@ -27,7 +24,7 @@ const hero: HeroProps = {
   ],
 };
 
-interface Article {
+interface Blog {
   title: string;
   description: string;
   thumbnail: string;
@@ -35,16 +32,16 @@ interface Article {
 }
 
 interface BlogPageProps {
-  articles: Article[];
+  blogs: Blog[];
 }
 
-export default function BlogPage({ articles }: BlogPageProps) {
+export default function BlogPage({ blogs }: BlogPageProps) {
   return (
     <Layout title="Blog - Starter">
       <Hero {...hero} />
-      <Collection
-        title="It has never been more critical to have a robust digital presence"
-        body={`At Last Rev, we strive not just to be a development shop for our clients but to partner with your team to provide guidance and support as you take the next step to building the technology end of your business. We've been building enterprise SaaS solutions alongside engineering, marketing, and operations teams for over 15 years, and work hard to create scalable, easy-to-use solutions to meet your business goals.`}
+      <Section
+        title="Building A Dynamic Blog Landing Page"
+        body={`This page shows you how to create a dynamic content that has the latest blog posts. When new Markdown files are added to the 'blogs' folder, it will show the title, thumbnail and summary automatically. `}
       >
         <Grid
           container
@@ -52,40 +49,40 @@ export default function BlogPage({ articles }: BlogPageProps) {
           alignItems="center"
           justifyContent="flex-start"
         >
-          {articles.map((article) => (
-            <Grid item key={article.slug}>
+          {blogs.map((blog) => (
+            <Grid item key={blog.slug}>
               <Card
-                title={article.title}
-                body={article.description}
+                title={blog.title}
+                body={blog.description}
                 variant="blog"
                 media={{
-                  title: article.title,
-                  src: article.thumbnail,
+                  title: blog.title,
+                  src: blog.thumbnail,
                 }}
-                link={{ href: article.slug }}
+                link={{ href: blog.slug }}
               />
             </Grid>
           ))}
         </Grid>
-      </Collection>
+      </Section>
     </Layout>
   );
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const files = fs.readdirSync("articles");
+  const files = fs.readdirSync("blogs");
 
-  const articles = files.map((file) => {
-    const data = fs.readFileSync(`articles/${file}`).toString();
+  const blogs = files.map((file) => {
+    const data = fs.readFileSync(`blogs/${file}`).toString();
 
     return {
       ...matter(data).data,
       slug: `blog/${file.split(".")[0]}`,
     };
-  }) as Article[];
+  }) as Blog[];
 
   const props: BlogPageProps = {
-    articles,
+    blogs,
   };
   return { props };
 };
