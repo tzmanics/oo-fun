@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 import { SxProps } from "@mui/system";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 import Link from "@components/Link";
 import Media from "@components/Media";
@@ -37,7 +38,9 @@ const Root = styled(Box, {
 export default function Text({ children, sx }: TextProps) {
   return (
     <Root sx={sx}>
-      <ReactMarkdown components={components}>{children || ""}</ReactMarkdown>
+      <ReactMarkdown components={components} remarkPlugins={[remarkGfm]}>
+        {children || ""}
+      </ReactMarkdown>
     </Root>
   );
 }

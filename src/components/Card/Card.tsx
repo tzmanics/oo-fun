@@ -17,7 +17,6 @@ export interface CardProps {
   actions?: LinkProps[];
   link?: LinkProps;
   media?: MediaProps;
-  direction?: string;
   reverse?: boolean;
 }
 
@@ -32,7 +31,7 @@ export default function Card({
 }: CardProps) {
   const card = (
     <MuiCard
-      variant={variant || "elevation"}
+      variant={variant}
       sx={{
         ...(reverse && { flexDirection: "row-reverse" }),
       }}

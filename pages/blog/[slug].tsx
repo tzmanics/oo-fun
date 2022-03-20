@@ -6,9 +6,8 @@ import matter from "gray-matter";
 import Layout from "@components/Layout";
 import Hero, { HeroProps } from "@components/Hero";
 import Text from "@components/Text";
-import Card from "@components/Card";
 
-interface BlogArticlePageProps {
+interface BlogPageProps {
   content: string;
   meta: {
     title: string;
@@ -18,10 +17,10 @@ interface BlogArticlePageProps {
   };
 }
 
-export default function BlogArticlePage({
+export default function BlogPage({
   meta,
   content,
-}: BlogArticlePageProps) {
+}: BlogPageProps) {
   return (
     <Layout title="Blog - Starter" disabledScroll>
       <Hero
@@ -39,7 +38,7 @@ export default function BlogArticlePage({
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const files = fs.readdirSync("articles");
+  const files = fs.readdirSync("blogs");
   const paths = files.map((file) => ({
     params: {
       slug: `${file.split(".")[0]}`,
@@ -56,11 +55,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
   try {
     const slug = context.params?.slug;
 
-    const content = fs.readFileSync(`articles/${slug}.md`).toString();
+    const content = fs.readFileSync(`blogs/${slug}.md`).toString();
 
     const info = matter(content);
 
-    const article = {
+    const blog = {
       meta: {
         ...info.data,
         slug,
@@ -70,7 +69,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
     return {
       props: {
-        ...article,
+        ...blog,
       },
     };
   } catch (err) {
