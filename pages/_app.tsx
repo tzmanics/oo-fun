@@ -7,10 +7,6 @@ import { CacheProvider, EmotionCache } from "@emotion/react";
 import theme from "@theme/theme";
 import createEmotionCache from "@theme/createEmotionCache";
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
