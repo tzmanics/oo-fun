@@ -35,7 +35,7 @@ function ElevationScroll({ children, disabled = false }: ElevationScrollProps) {
       ...((trigger || disabled) && {
         color: "white",
         "& img": { filter: "invert(1)" },
-        "& svg": { color: "white" },
+        "& *": { color: "white" },
       }),
     },
   });
