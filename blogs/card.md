@@ -6,24 +6,29 @@ image: /images/image-2.jpg
 ---
 
 # Card
+
 Extends the MUI Card Component to add addtional options. CSS Selectors for props have been shown below. For a full list please visit the docs for [MUICard](https://mui.com/api/card/)
 
 ## Props
-| Prop      | Type |  Description |  CSS Selector |
-| ----------- | ----------- | ----------- | ----------- |
-| title      | string       | The primary heading of the card       | .MuiTypography-h5       |
-| body   | string        | Standard paragraph text       | .MuiTypography-body1        |
-| variant   | string        | used to change the design variant       | N/A        |
-| actions   | Link[]      | array of Link items that allow you to have multiple actions a user can click on       | .MuiCardActions-root        |
-| link   | Text        | Used when there is only one action and you want the entire card linkable       | N/A        |
-| media   | Media        | string       | .MuiCardMedia-img        |
-| reverse   | Text        | Controls the `flexDirection: row-reverse` to reverse the flow of the content.       | N/A        |
 
+| Prop    | Type   | Description                                                                     | CSS Selector         |
+| ------- | ------ | ------------------------------------------------------------------------------- | -------------------- |
+| title   | string | The primary heading of the card                                                 | .MuiTypography-h5    |
+| body    | string | Standard paragraph text                                                         | .MuiTypography-body1 |
+| variant | string | used to change the design variant                                               | N/A                  |
+| actions | Link[] | array of Link items that allow you to have multiple actions a user can click on | .MuiCardActions-root |
+| link    | Text   | Used when there is only one action and you want the entire card linkable        | N/A                  |
+| media   | Media  | string                                                                          | .MuiCardMedia-img    |
+| reverse | Text   | Controls the `flexDirection: row-reverse` to reverse the flow of the content.   | N/A                  |
 
 ## Variations
+
 ### `feature`
+
 ![](/images/components/card/feature.png)
+
 #### Code Example
+
 ```javascript
 <Card
   title="Component Based Design"
@@ -36,11 +41,13 @@ Extends the MUI Card Component to add addtional options. CSS Selectors for props
 ```
 
 ### `side`
+
 ![](/images/components/card/side.png)
+
 ```javascript
 <Card
   title="Component Based Design"
-  body="This template provides you with examples of common components used when building todays modern marketing websites. Using Material UI as a baseline, you will find examples of Page Layout, Collections, Header, Footer, Forms, Hero, Slider, Pricing Table, Media, Advanced Link options. Use these components in your own project to see examples of how to extend the MUI framework to start to build your own set of custom design and functionality options"
+  body="This template provides you with examples of common components used when building todays modern marketing websites. Using Material UI as a baseline, you will find examples of Page Layout, Collections, Header, Footer, Forms, Hero, FlexGrid, Pricing Table, Media, Advanced Link options. Use these components in your own project to see examples of how to extend the MUI framework to start to build your own set of custom design and functionality options"
   variant="side"
   media={{
     title: "Card Side",
@@ -59,7 +66,9 @@ Extends the MUI Card Component to add addtional options. CSS Selectors for props
 ```
 
 ### `blog`
+
 ![](/images/components/card/blog.png)
+
 ```javascript
 <Card
   title="My First Blog Post"
@@ -74,9 +83,11 @@ Extends the MUI Card Component to add addtional options. CSS Selectors for props
 ```
 
 ### `quote`
+
 ![](/images/components/card/blog.png)
+
 ```javascript
- <Card
+<Card
   key="slide-1"
   title="Jane Doe"
   body="This template is amazing!"

@@ -8,7 +8,7 @@ import Hero, { HeroProps } from "@components/Hero";
 import Section from "@components/Section";
 import Card from "@components/Card";
 import Form from "@components/Form";
-import Slider from "@components/Slider";
+import FlexGrid from "@components/FlexGrid";
 import Link from "@components/Link";
 
 const hero: HeroProps = {
@@ -120,7 +120,7 @@ export default function HomePage() {
           <Grid item xs={12}>
             <Card
               title="Common web component examples"
-              body="This template provides you with examples of common components used when building todays modern marketing websites. Using Material UI as a baseline, you will find examples of Page Layout, Sections, Header, Footer, Forms, Hero, Slider, Pricing Table, Media, Advanced Link options. Use these components in your own project to see examples of how to extend the MUI framework to start to build your own set of custom design and functionality options"
+              body="This template provides you with examples of common components used when building todays modern marketing websites. Using Material UI as a baseline, you will find examples of Page Layout, Sections, Header, Footer, Forms, Hero, FlexGrid, Pricing Table, Media, Advanced Link options. Use these components in your own project to see examples of how to extend the MUI framework to start to build your own set of custom design and functionality options"
               variant="side"
               media={{
                 title: "Card Side",
@@ -197,16 +197,12 @@ export default function HomePage() {
         />
       </Container>
       <Container maxWidth="lg">
-        <Slider
+        <FlexGrid
           title="This is what everyone is saying"
           sx={{
             py: 8,
             "& .MuiTypography-h3": { fontSize: 24 },
-            "& .swiper-slide": { maxWidth: 320 },
           }}
-          slidesPerView={2}
-          centeredSlides
-          pagination
         >
           <Card
             key="slide-1"
@@ -248,24 +244,20 @@ export default function HomePage() {
               src: "https://gravatar.com/avatar/9cb61e19d3bc45b37c4013e3e51d1c97?s=400&d=robohash&r=x",
             }}
           />
-        </Slider>
+        </FlexGrid>
       </Container>
       <Container maxWidth="lg">
-        <Slider
+        <FlexGrid
           title="Current positions"
           sx={{
             py: 8,
             "& .MuiTypography-h3": { fontSize: 24 },
-            "& .swiper-slide": { maxWidth: 320 },
           }}
-          slidesPerView={2}
-          centeredSlides
-          pagination
         >
           {positions.slice(0, 5).map((position) => (
             <Card key={position.slug} body={position.title} variant="quote" />
           ))}
-        </Slider>
+        </FlexGrid>
       </Container>
     </Layout>
   );
